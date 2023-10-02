@@ -4,20 +4,30 @@
 <head>
     <title>Author Page</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .shadow {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Author entry Vaishnavi Varaganti</h1>
-    <br>
+    <h1 class="text-primary shadow">Author entry Vaishnavi Varaganti</h1>
+
     <form>
-        <label for="author_name">The hidden author name</label>
-        <input type="password" id="author_name" name="author_name" value="Dickens"> <br>
-        <label for="user_guess">Guess the author</label>
-        <input type="text" id="user_guess" name="user_guess"> <br>
-        <input type="button" onclick="checkAuthor()" value="Check the guess">
+        &nbsp;&nbsp;&nbsp;<label for="author_name">The hidden author name</label>
+        &nbsp;&nbsp;&nbsp;<input type="password" id="author_name" name="author_name" value="Dickens"> <br>
+        &nbsp;&nbsp;&nbsp;<label for="user_guess">Guess the author</label>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text"
+            id="user_guess" name="user_guess"> <br>
+        &nbsp;&nbsp;&nbsp;<input type="button" id="button" onclick="checkAuthor()" value="Check the guess">
     </form>
     <br>
-        <p class="text-danger font-weight-bold" id="result"> Right/Wrong ???</p>
+    <div class="container">
+        <b>
+            <p class="text-danger ml-3" style="font-size: larger;" id="result"> Right/Wrong ???</p>
+        </b>
+    </div>
     <script>
         let good = 0;
         let oops = 0;
@@ -30,13 +40,18 @@
                 alert("You got it right");
                 out.innerHTML = `Correct Guess!!! Good: ${good}`;
             }
-            else if (oops >= 7) {
-                alert("Sorry, ran out of guesses.");
-            }
             else {
-                oops = oops + 1;
-                alert("Sorry");
-                out.innerHTML = `Wrong Guess!!! Oops: ${oops}`;
+                oops++;
+                if (oops >= 7) {
+                    document.getElementById("button").onclick()=function(){
+                        alert("Sorry, ran out of guesses.");
+                    }
+                }
+                else {
+                    oops = oops + 1;
+                    alert("Sorry");
+                    out.innerHTML = `Wrong Guess!!! Oops: ${oops}`;
+                }
             }
         }
         let useImage = 1;
@@ -62,7 +77,8 @@
         }
     </script>
     <div>
-        <img src="varanasi.jpg" id="varanasi" height=100 width=100 alt="Image of Varanasi" onclick="selectImage()">
+        <img src="varanasi.jpg" id="varanasi" height=100 width=100 alt="Image of Varanasi" onclick="selectImage()"
+            class="ml-3">
     </div>
 </body>
 

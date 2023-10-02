@@ -34,7 +34,31 @@
                 out.innerHTML = `Wrong Guess!!! Oops: ${oops}`;
             }
         }
+        let useImage = 1;
+        function selectImage() {
+            var image = document.getElementById("varanasi");
+            switch (useImage) {
+                case 1: {
+                    image.src = "antigua.jpg";
+                    useImage = 2;
+                    break;
+                }
+                case 2: {
+                    image.src = "rome.jpg";
+                    useImage = 3;
+                    break;
+                }
+                case 3: {
+                    image.src = "varanasi.jpg";
+                    useImage = 1;
+                    break;
+                }
+            }
+        }
     </script>
+    <div>
+        <img src="varanasi.jpg" id="varanasi" height=100 width=100 alt="Image of Varanasi" onclick="selectImage()">
+    </div>
 </body>
 
 </html>

@@ -19,7 +19,7 @@
         <label for="pool_pass   ">Pool Pass</label></br>
         <input type="button" onclick="selectCruise()" value="Select a Cruise">
     </form>
-    <br>
+    <p id="result" style="font-weight: bold;">The cruise details will be displayed here </p>
     <form>
         <label for="days">Enter the number of days </label>
         <input type="text" id="days" name="days"> <br>
@@ -27,8 +27,6 @@
         <input type="text" id="price" name="price"> <br>
         <input type="button" onclick="updateCruise()" value="Update the Cruise">
     </form>
-    <p id="result" style="font-weight: bold;">The cruise details will be displayed here </p>
-
     <script>
         my_cruise = {};
         function selectCruise() {

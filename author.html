@@ -3,11 +3,12 @@
 
 <head>
     <title>Author Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 
 <body>
     <h1>Author entry Vaishnavi Varaganti</h1>
-
+    <br>
     <form>
         <label for="author_name">The hidden author name</label>
         <input type="password" id="author_name" name="author_name" value="Dickens"> <br>
@@ -15,7 +16,8 @@
         <input type="text" id="user_guess" name="user_guess"> <br>
         <input type="button" onclick="checkAuthor()" value="Check the guess">
     </form>
-    <p id="result"> Right/Wrong ???</p>
+    <br>
+        <p class="text-danger font-weight-bold" id="result"> Right/Wrong ???</p>
     <script>
         let good = 0;
         let oops = 0;
@@ -27,6 +29,9 @@
                 good = good + 1;
                 alert("You got it right");
                 out.innerHTML = `Correct Guess!!! Good: ${good}`;
+            }
+            else if (oops >= 7) {
+                alert("Sorry, ran out of guesses.");
             }
             else {
                 oops = oops + 1;

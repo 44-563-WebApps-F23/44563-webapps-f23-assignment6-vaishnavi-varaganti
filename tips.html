@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Tips Page
+    </title>
+</head>
+
+<body>
+
+    <h1>Vaishnavi Varaganti shows tip amounts</h1>
+
+    <form>
+        <label for="base_amount">Enter base amount </label>
+        <input type="number" id="base_amount" name="base_amount" value=50> <br>
+        <label for="tip_percent">Enter the tip percent </label>
+        <input type="number" id="tip_percent" name="tip_percent" value=15> <br>
+        <input type="button" onclick="tips()" value="Show tip">
+    </form>
+
+
+    <p id="result">The tips will be shown here</p>
+
+    <script>
+
+        function tips() {
+            let base_amount = parseFloat(document.getElementById("base_amount").value);
+            let tip = parseFloat(document.getElementById("tip_percent").value);
+            let out = document.getElementById("result");
+            let toShow = "";
+            for (let itr = 0; itr < 5; itr++) {
+                var calculatedTip = (base_amount * (tip + itr * 4)) / 100;
+                toShow += (tip + itr * 4) + "% is " + calculatedTip + "; ";
+                console.log(calculatedTip);
+                console.log(tip+itr*4);
+            }
+            toShow = "Tip are: " + toShow;
+            document.getElementById("result").innerHTML = toShow;
+        }
+    </script>
+
+</body>
+
+</html>

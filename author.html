@@ -44,8 +44,10 @@
             else {
                 oops++;
                 if (oops >= 7) {
-                    alert("Sorry, ran out of guesses");
-                    out.innerHTML = "You ran out of guesses"
+                    document.getElementById("resultButton").onclick = function () {
+                        alert("Sorry, ran out of guesses");
+                    };
+                    out.innerHTML = `Wrong Guess!!! Oops: ${oops}`;
                 }
                 else {
                     alert("Sorry");
